@@ -50,6 +50,8 @@
      <td>${album.albumid}</td>
      <td>${album.albumname}</td>
      <td>${album.artist}</td>
+     <td><a href="deleteAlbum?albumid=${album.albumid}"><button>Delete</button></a></td>
+     
     </tr>
 
 	</c:forEach>

@@ -2,9 +2,6 @@ package com.stackroute.musicapp.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -17,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.stackroute.musicapp.model.Album;
 import com.stackroute.musicapp.service.AlbumService;
 
-@Controller
-public class AlbumController {
+//@Controller
+public class AlbumController2 {
 	
 	
 	
@@ -37,12 +34,15 @@ public class AlbumController {
 	
 	@RequestMapping(value="/addAlbum",method=RequestMethod.POST)
 	public String addAlbum(Model model, 
-			HttpServletRequest req,HttpServletResponse res
+			@RequestParam("albumid") String albumid,
+			@RequestParam("albumname") String albumname,
+			@RequestParam("artist") String artist
 			) {
 		
-		newalbum.setAlbumid(req.getParameter("albumid"));
-		newalbum.setAlbumname(req.getParameter("albumname"));
-		newalbum.setArtist(req.getParameter("artist"));
+//		Album newalbum = new Album();
+		newalbum.setAlbumid(albumid);
+		newalbum.setAlbumname(albumname);
+		newalbum.setArtist(artist);
 		
 		albumService.addAlbum(newalbum);
 		

@@ -1,5 +1,8 @@
 package com.stackroute.musicapp.model;
 
+import org.springframework.stereotype.Component;
+
+
 public class Album {
 
 	private String albumid;

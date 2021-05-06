@@ -2,8 +2,10 @@ package com.stackroute.musicapp.repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 
 import com.stackroute.musicapp.model.Album;
+
 
 public class AlbumRepository {
 
@@ -18,8 +20,20 @@ public class AlbumRepository {
 		return albumlist;
 	}
 	
-	public Album deleteAlbum(String Albumid) {
-		return null;
+	public Album deleteAlbum(String albumid) {
+		Album deletedAlbum = new Album();
+		Album alb;
+		ListIterator<Album> alblist = albumlist.listIterator();
+		
+		while(alblist.hasNext()) {
+			if((alb = alblist.next()).getAlbumid().equals(albumid)) {
+				alblist.remove();
+				deletedAlbum = alb;
+
+			}
+		}
+		
+		return deletedAlbum;
 	}
 	
 	public Album updateAlbum(Album Album) {
